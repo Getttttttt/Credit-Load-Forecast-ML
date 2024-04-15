@@ -4,6 +4,10 @@ Credit-Load-Forecast-ML
 
 ## 2024.04.15 Get
 
+Initial commit SVM.
+
+## 2024.04.15 Get
+
 以尝试的模型名为文件夹，创建工作目录，上传代码和运行结果。
 
 每个模型下（./{Method}）的结构应该是
