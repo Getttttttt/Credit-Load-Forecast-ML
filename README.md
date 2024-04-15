@@ -2,6 +2,10 @@
 
 Credit-Load-Forecast-ML
 
+## 2024.04.15 Rita
+
+Initial commit NaiveBayes.
+
 ## 2024.04.15 Get
 
 Initial commit SVM.
