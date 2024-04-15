@@ -20,8 +20,6 @@ X = df.drop(columns=['loan_id', 'user_id', 'is_default'])
 y = df['is_default']
 N = 100
 
-# criterion  gini和entropy，默认是gini, entropy本质上惩罚更狠，但是慢一点，而且高噪声数据中很容易过拟合，不一定！！仅仅改变这一点并未提高模型，貌似两个差不多
-
 dt_classifier = DecisionTreeClassifier(random_state=3407,
                                        criterion='entropy',
                                        max_depth = 11,
@@ -34,7 +32,7 @@ dt_classifier = DecisionTreeClassifier(random_state=3407,
     2024-04-15 12:51
     修改标签编码方式!
     ********************************
-    调整以后: AUC: 0.785 平均信息熵: 0.43
+    调整以后: AUC: 0.787 平均信息熵: 0.426
 '''
 cv = StratifiedKFold(n_splits=N, shuffle=True, random_state=3407)
 
