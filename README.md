@@ -25,3 +25,7 @@ Initial commit SVM.
 ./{Method}/Result
 
 每次更新，写好日期、署名，并说明模型调参和模型优度评价。（每次更新写在最前面，倒序更新）
+
+## 2024.04.16 LiuYun
+
+Initial commit Logistic Regression.
