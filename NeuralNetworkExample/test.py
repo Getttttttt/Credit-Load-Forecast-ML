@@ -31,4 +31,4 @@ for step, (data, emb_data, loan_id) in enumerate(test_dataloader):
         result.append([loan_id.item(), prob])
 
 # 保存结果到 CSV 文件
-pd.DataFrame(result, columns=['id', 'isDefault']).to_csv('../NeuralNetworkExample/submission.csv', index=None)
+pd.DataFrame(result, columns=['id', 'isDefault']).to_csv('./NeuralNetworkExample/submission.csv', index=None)

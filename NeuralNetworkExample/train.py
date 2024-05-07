@@ -22,8 +22,8 @@ model = MyNet()
 
 model.train()
 
-max_epoch = 10
-opt = optim.Adam(model.parameters(), lr=0.002)
+max_epoch = 30
+opt = optim.Adam(model.parameters(), lr=0.001)
 
 # 训练
 now_step = 0
