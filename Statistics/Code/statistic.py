@@ -46,3 +46,35 @@ merged_df.columns = column_names
 
 # Display the first few rows of the merged dataframe
 merged_df.head()
+
+# Define the rule for the new 'isDefault' submission column
+def determine_default(row):
+    # Sort the values to easily determine the best (minimum) value
+    sorted_values = sorted(row[1:])  # exclude 'id' column
+    count_below_07 = sum(value < 0.07 for value in sorted_values)
+    best = sorted_values[0]
+
+    # Rule: All values below 0.07
+    if all(value < 0.07 for value in sorted_values):
+        return 0
+    # Rule: 4 values below 0.07 including the best
+    elif count_below_07 >= 4:
+        return 0
+    # Rule: Best below 0.1 and others below 0.2
+    elif best < 0.1 and all(value < 0.2 for value in sorted_values):
+        return best / 2
+    # Rule: All values above 0.8
+    elif all(value > 0.8 for value in sorted_values):
+        return 1
+    # Default: no change
+    else:
+        return best
+
+# Apply the rules to generate the new 'isDefault' column
+merged_df['isDefault'] = merged_df.apply(determine_default, axis=1)
+
+# Extract the 'id' and new 'isDefault' columns to a new dataframe
+final_submission_df = merged_df[['id', 'isDefault']]
+
+# Display the first few rows of the new submission dataframe
+final_submission_df.head()
